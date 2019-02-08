@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- You may freely edit this file. See harness/README in the NetBeans platform -->
+<!-- for some information on what you could do (e.g. targets to override). -->
+<!-- If you delete this file and reopen the project it will be recreated. -->
+<project name="at.ssw.visualizer.model" default="netbeans" basedir=".">
+    <description>Builds, tests, and runs the project at.ssw.visualizer.model.</description>
+    <import file="nbproject/build-impl.xml"/>
+    <target name="-pre-compile">
+        <java jar="Coco.jar" fork="true">
+            <arg value="-package"/>
+            <arg value="at.ssw.visualizer.parser"/>
+            <arg value="src/at/ssw/visualizer/parser/CompilerOutput.atg"/>
+        </java>
+    </target>
+    <target name="compile" depends="-pre-compile,projectized-common.compile"/>
+</project>

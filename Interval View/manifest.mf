@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+OpenIDE-Module: at.ssw.visualizer.interval.view
+OpenIDE-Module-Layer: at/ssw/visualizer/interval/view/layer.xml
+OpenIDE-Module-Localizing-Bundle: at/ssw/visualizer/interval/view/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.0
+

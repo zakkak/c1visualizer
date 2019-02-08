@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.netbeans.org/ns/project/1">
+    <type>org.netbeans.modules.apisupport.project</type>
+    <configuration>
+        <data xmlns="http://www.netbeans.org/ns/nb-module-project/3">
+            <code-name-base>org.freehep</code-name-base>
+            <suite-component/>
+            <module-dependencies/>
+            <public-packages>
+                <package>org.freehep.graphics2d</package>
+                <package>org.freehep.graphics2d.font</package>
+                <package>org.freehep.graphicsio</package>
+                <package>org.freehep.graphicsio.emf</package>
+                <package>org.freehep.graphicsio.emf.gdi</package>
+                <package>org.freehep.graphicsio.exportchooser</package>
+                <package>org.freehep.graphicsio.font</package>
+                <package>org.freehep.graphicsio.font.truetype</package>
+                <package>org.freehep.graphicsio.gif</package>
+                <package>org.freehep.graphicsio.pdf</package>
+                <package>org.freehep.graphicsio.png</package>
+                <package>org.freehep.graphicsio.ppm</package>
+                <package>org.freehep.graphicsio.raw</package>
+                <package>org.freehep.graphicsio.svg</package>
+                <package>org.freehep.util</package>
+                <package>org.freehep.util.images</package>
+                <package>org.freehep.util.io</package>
+                <package>org.freehep.util.template</package>
+                <package>org.freehep.xml.io</package>
+                <package>org.freehep.xml.menus</package>
+                <package>org.freehep.xml.menus.test</package>
+                <package>org.freehep.xml.util</package>
+            </public-packages>
+            <class-path-extension>
+                <runtime-relative-path>ext/freeHep.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/freeHep.jar</binary-origin>
+            </class-path-extension>
+        </data>
+    </configuration>
+</project>

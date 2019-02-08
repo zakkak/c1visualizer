@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- You may freely edit this file. See harness/README in the NetBeans platform -->
+<!-- for some information on what you could do (e.g. targets to override). -->
+<!-- If you delete this file and reopen the project it will be recreated. -->
+<project name="C1Visualizer" basedir=".">
+    <description>Builds the module suite C1Visualizer.</description>
+    <import file="nbproject/build-impl.xml"/>
+
+    <target name="build-brand" depends="-init">
+        <propertyfile
+            file="${basedir}/branding/core/core.jar/org/netbeans/core/startup/Bundle.properties"
+            comment="Updated by 'ant build-brand'">
+            <entry key="currentVersion" value="${app.title} ${app.version}" />
+        </propertyfile>
+
+        <propertyfile
+            file="${basedir}/branding/modules/org-netbeans-core-windows.jar/org/netbeans/core/windows/view/ui/Bundle.properties"
+            comment="Updated by 'ant build-brand'">
+            <entry key="CTL_MainWindow_Title" value="${app.title} ${app.version}" />
+            <entry key="CTL_MainWindow_Title_No_Project" value="${app.title} ${app.version}" />
+        </propertyfile>
+    </target>
+
+    <target name="build-launchers" depends="suite.build-launchers">
+        <!-- Drop memory presets (-Xms, -Xmx) from default_options of packaged builds and let the executing VM choose reasonable defaults -->
+        <replaceregexp file="${build.launcher.dir}/etc/${app.name}.conf" byline="true" match="^default_options=.*" replace='default_options="--branding ${app.name}"' />
+    </target>
+
+    <target name="build-zip" depends="src-zip,suite.build-zip" description="Builds a ZIP distribution of the suite, launchers, selected modules from the platform and the src.zip.">
+        <!-- Add src.zip, changelog, and user guide to the archive -->
+        <zip destfile="${dist.dir}/${app.name}.zip" update="true">
+            <zipfileset file="${dist.dir}/${app.name}-${app.version}_src.zip" fullpath="${app.name}/src.zip" />
+            <zipfileset file="${basedir}/../CHANGELOG.md" fullpath="${app.name}/CHANGELOG.md"/>
+            <zipfileset file="${basedir}/../www/UserGuide/UserGuide.pdf" fullpath="${app.name}/UserGuide.pdf"/>
+        </zip>
+        <!-- Rename zip file to include the version -->
+        <move file="${dist.dir}/${app.name}.zip" tofile="${dist.dir}/${app.name}-${app.version}.zip" overwrite="true"/>
+        <checksum file="${dist.dir}/${app.name}-${app.version}.zip" forceOverwrite="true" algorithm="SHA1" fileext=".sha1"/>
+    </target>
+
+    <!-- Zip the source code -->
+    <target name="src-zip" depends="-init" description="Builds a ZIP distribution of the source code.">
+        <tempfile property="scm.files" deleteonexit="true" prefix="scm-files_"/>
+        <exec executable="git" output="${scm.files}">
+            <arg value="ls-files"/>
+        </exec>
+        <zip destfile="${dist.dir}/${app.name}-${app.version}_src.zip">
+            <zipfileset dir="${basedir}" includesfile="${scm.files}" prefix="${app.name}"/>
+        </zip>
+    </target>
+</project>

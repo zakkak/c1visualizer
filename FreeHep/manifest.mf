@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+OpenIDE-Module: org.freehep
+OpenIDE-Module-Localizing-Bundle: org/freehep/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.0
+
