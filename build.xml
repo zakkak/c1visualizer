@@ -31,7 +31,7 @@
         <zip destfile="${dist.dir}/${app.name}.zip" update="true">
             <zipfileset file="${dist.dir}/${app.name}-${app.version}_src.zip" fullpath="${app.name}/src.zip" />
             <zipfileset file="${basedir}/../CHANGELOG.md" fullpath="${app.name}/CHANGELOG.md"/>
-            <zipfileset file="${basedir}/../www/UserGuide/UserGuide.pdf" fullpath="${app.name}/UserGuide.pdf"/>
+            <zipfileset file="${basedir}/www/UserGuide/UserGuide.pdf" fullpath="${app.name}/UserGuide.pdf"/>
         </zip>
         <!-- Rename zip file to include the version -->
         <move file="${dist.dir}/${app.name}.zip" tofile="${dist.dir}/${app.name}-${app.version}.zip" overwrite="true"/>
